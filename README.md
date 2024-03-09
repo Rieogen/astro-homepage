@@ -1,3 +1,15 @@
+# blog-sample astro
+## 初期設定方法
+### Corepackを有効にする
+```
+corepack enable
+```
+
+### プロジェクトの全ての依存関係をインストール
+```
+yarn install
+```
+
 # Astro Starter Kit: Blog
 
 ```sh
