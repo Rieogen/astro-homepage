@@ -1,129 +1,37 @@
+/* include css */
+@import url("Components/header.css");
+
+/* Global styles */
+:root {
+  --background-dark: #1e1e2e;
+  --background-light: #f0f8f2;
+  --button: #d3daee;
+  --text-dark: #f0f8f2;
+  --text-light: #1e1e2e;
+  --text-link-dark: #78c2ad;
+  --text-link-light: #ff008b;
+  --underline: #375a7f;
+  --body: "Zen Maru Gothic", serif;
+}
+
 html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-light);
 }
 
 body {
+  max-width: 650px;
   margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+  text-align: justify;
 }
 
 * {
-  box-sizing: border-box;
+  font-family: var(--body);
 }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-}
-
-/* ナビゲーションのスタイル */
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover,
-a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
+/* Media Query */
+@media only screen and (max-width: 650px) {
+  body {
+    width: 350px;
+  } 
 }
