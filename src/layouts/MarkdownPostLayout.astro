@@ -1,8 +1,8 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import Layout from './Layout.astro';
 const { frontmatter } = Astro.props;
 ---
-<BaseLayout pageTitle={frontmatter.title}>
+<Layout pageTitle={frontmatter.title}>
   <p><em>{frontmatter.description}</em></p>
   <p>{frontmatter.pubDate.slice(0,10)}</p>
 
@@ -17,7 +17,7 @@ const { frontmatter } = Astro.props;
   </div>
 
   <slot />
-</BaseLayout>
+</Layout>
 <style>
   a {
     color: #00539F;
