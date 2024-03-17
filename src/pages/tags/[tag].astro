@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+import { CollectionEntry, getCollection } from 'astro:content';
+import { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType, Page } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection('post');
+  const tags = allPosts.flatMap((post) => [...post.data.tags])
+  const uniqueTags = [...new Set(tags)];
+  
+  return uniqueTags.map((tag) => {
+    const filterPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filterPosts },
+    };
+  });
+});
+
+
+interface Tag {
+  tag: string;
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag } = Astro.params as Tag;
+const { posts } = Astro.props;
+console.log(posts)
+---
+<Layout pageTitle={tag}>
+  <p>{tag}のタグが付いた記事</p>
+  <ul>
+    {posts.map((post) => (
+      <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+      <p>{post.url}</p>
+      ))}
+  </ul>
+</Layout>

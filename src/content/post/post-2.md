@@ -1,8 +1,9 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 私の2番目のブログ記事
 author: Astro学習者
 description: "Astroを少し学んだら、止まらなくなりました！"
-pubDate: 2022-07-08
+publishDate: 2022-07-08
 tags: ["astro", "ブログ", "公開学習", "成功"]
 ---
 

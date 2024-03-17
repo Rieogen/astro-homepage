@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 私の4番目のブログ記事
 author: Astro学習者
 description: "この記事単独で表示されます！"
-pubDate: 2022-08-08
+publishDate: 2022-08-08
 tags: ["astro", "成功"]
 ---
 
