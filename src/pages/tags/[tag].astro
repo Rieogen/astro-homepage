@@ -2,8 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 
-import { getCollection } from 'astro:content';
-import { InferGetStaticPropsType } from 'astro';
 import { getAllPosts, getUniqueTags } from '@/data/post';
 
 export const getStaticPaths = (async () => {
@@ -23,7 +21,6 @@ export const getStaticPaths = (async () => {
 interface Tag {
   tag: string;
 }
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { tag } = Astro.params as Tag;
 const { posts } = Astro.props;
@@ -32,8 +29,9 @@ const { posts } = Astro.props;
   <p>{tag}のタグが付いた記事</p>
   <ul>
     {posts.map((post) => (
-      <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
-      <p>{post.url}</p>
-      ))}
+      <li>
+        <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+      </li>
+    ))}
   </ul>
 </Layout>
