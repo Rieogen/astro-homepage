@@ -1,11 +1,14 @@
 ---
+import { getAllPosts } from '@/data/post';
 import Layout from '@/layouts/Layout.astro'
-const allPosts = await Astro.glob('../pages/posts/*.md');
+const allPosts = await getAllPosts();
 const pageTitle = "私のAstro学習ブログ";
 ---
 <Layout pageTitle={pageTitle}>
   <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
   <ul>
-     {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+     {allPosts.map((post) => (
+      <li><a href={`/posts/${post.slug}`}>{post.data.title}</a></li>
+     ))}
   </ul>
 </Layout>
