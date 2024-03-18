@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+import { getAllPosts, getUniqueTags } from '@/data/post';
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getAllPosts();
+  const tags = await getUniqueTags();
+  
+  return tags.map((tag) => {
+    const filterPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filterPosts },
+    };
+  });
+});
+
+
+interface Tag {
+  tag: string;
+}
+
+const { tag } = Astro.params as Tag;
+const { posts } = Astro.props;
+---
+<Layout pageTitle={tag}>
+  <p>{tag}のタグが付いた記事</p>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+      </li>
+    ))}
+  </ul>
+</Layout>
