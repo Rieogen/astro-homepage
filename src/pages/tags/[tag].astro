@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 
-import { getAllPosts, getUniqueTags } from '@/data/post';
+import { getAllPosts, getUniqueTags } from '@/utils/post';
 
 export const getStaticPaths = (async () => {
   const allPosts = await getAllPosts();

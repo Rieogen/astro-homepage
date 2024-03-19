@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getUniqueTags } from '@/data/post';
+import { getUniqueTags } from '@/utils/post';
 
 const tags: string[] = await getUniqueTags();
 const pageTitle = "タグインデックス";

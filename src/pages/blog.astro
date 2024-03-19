@@ -1,5 +1,5 @@
 ---
-import { getAllPosts, getUniqueTags } from '@/data/post';
+import { getAllPosts, getUniqueTags } from '@/utils/post';
 import Layout from '@/layouts/Layout.astro'
 const allPosts = await getAllPosts();
 const allTags = await getUniqueTags();
