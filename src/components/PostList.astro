@@ -1,0 +1,17 @@
+---
+import PostPreview from '@/components/PostPreview.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  postList: CollectionEntry<"post">[];
+};
+
+const { postList } = Astro.props;
+---
+<ul class="posts">
+  {postList.map((post) => (
+    <li>
+      <PostPreview post={post} />
+    </li>
+  ))}
+</ul>
