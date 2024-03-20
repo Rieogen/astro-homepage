@@ -1,8 +1,11 @@
 ---
 import { getAllPosts, getUniqueTags } from '@/utils/post';
 import Layout from '@/layouts/Layout.astro'
+import PostPreview from '@/components/PostPreview.astro';
+
 const allPosts = await getAllPosts();
 const allTags = await getUniqueTags();
+
 const pageTitle = "Blog";
 ---
 <Layout pageTitle={pageTitle}>
@@ -15,12 +18,11 @@ const pageTitle = "Blog";
     </ul>
   </section>
   <section>
-
     <h2>Posts</h2>
-  <ul>
-     {allPosts.map((post) => (
-      <li><a href={`/posts/${post.slug}`}>{post.data.title}</a></li>
-     ))}
-  </ul>
+    <ul class="posts">
+      {allPosts.map((post) => (
+        <li><PostPreview post={post} /> </li>
+      ))}
+    </ul>
   </section>
 </Layout>

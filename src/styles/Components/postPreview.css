@@ -1,0 +1,18 @@
+.postPreview {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-bottom: 1px solid var(--underline);
+  gap: 10px;
+}
+
+.postPreview .heading h3 {
+  margin: 0;
+}
+.postPreview .heading p {
+  margin: 0;
+}
+
+.postPreview * {
+  color: var(--text-light);
+}
