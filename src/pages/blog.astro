@@ -1,7 +1,8 @@
 ---
 import { getAllPosts, getUniqueTags } from '@/utils/post';
 import Layout from '@/layouts/Layout.astro'
-import PostPreview from '@/components/PostPreview.astro';
+import PostList from '@/components/PostList.astro';
+import TagList from '@/components/TagList.astro';
 
 const allPosts = await getAllPosts();
 const allTags = await getUniqueTags();
@@ -11,18 +12,10 @@ const pageTitle = "Blog";
 <Layout pageTitle={pageTitle}>
   <section>
     <h2>Tags</h2>
-    <ul class="tags">
-      {allTags.map((tag) => (
-        <li class="tag"><a href={`/tags/${tag}`}>{tag}</a></li>
-      ))}
-    </ul>
+    <TagList tagList={allTags} />
   </section>
   <section>
     <h2>Posts</h2>
-    <ul class="posts">
-      {allPosts.map((post) => (
-        <li><PostPreview post={post} /> </li>
-      ))}
-    </ul>
+    <PostList postList={allPosts} />
   </section>
 </Layout>

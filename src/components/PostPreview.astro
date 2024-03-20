@@ -1,6 +1,7 @@
 ---
 import { getFormatDate } from '@/utils/date';
 import type { CollectionEntry } from 'astro:content';
+import TagList from '@/components/TagList.astro';
 
 interface Props {
   post: CollectionEntry<"post">;
@@ -17,12 +18,6 @@ const postDate = getFormatDate(post.data.publishDate);
       <h3>{post.data.title}</h3>
     </a>
   </div>
-  <ul class="tags">
-    {post.data.tags.map((tag) => (
-      <li class="tag">
-        <a href={`/tags/${tag}`}>{tag}</a>
-      </li>
-    ))}
-  </ul>
+  <TagList tagList={post.data.tags} />
 </section>
 
