@@ -3,6 +3,10 @@
   justify-content: space-between;
   margin-top: 1.5rem;
   color: var(--text-light);
+  @container style(--is-mobile) {
+    flex-flow: column;
+    align-items: center;
+  }
 }
 
 .header__title {
