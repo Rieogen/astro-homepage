@@ -17,6 +17,9 @@
   --tag-light: #b51f3d;
   --underline: #375a7f;
   --body: "Zen Maru Gothic", serif;
+  @media (width <= 700px) {
+    --is-mobile: true;
+  }
 }
 
 html {
@@ -26,6 +29,7 @@ html {
 
 body {
   max-width: 650px;
+  width: 100%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -47,7 +51,7 @@ a {
 }
 
 /* Media Query */
-@media only screen and (max-width: 700px) {
+@container style(--is-mobile) {
   body {
     width: 350px;
   }
