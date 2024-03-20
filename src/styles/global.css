@@ -1,6 +1,8 @@
 /* include css */
+@import url("layouts/blog.css");
 @import url("Components/header.css");
 @import url("Components/tag.css");
+@import url("Components/postPreview.css");
 
 /* Global styles */
 :root {
@@ -26,6 +28,18 @@ body {
   max-width: 650px;
   margin: 0 auto;
   text-align: justify;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 * {

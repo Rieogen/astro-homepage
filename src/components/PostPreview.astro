@@ -1,0 +1,29 @@
+---
+import { getFormatDate } from '@/utils/date';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<"post">;
+};
+
+const { post } = Astro.props;
+console.log(post);
+
+const postDate = getFormatDate(post.data.publishDate);
+---
+<section class="postPreview">
+  <div class="heading">
+    <p>{postDate}</p>
+    <a href={`/posts/${post.slug}`}>
+      <h3>{post.data.title}</h3>
+    </a>
+  </div>
+  <ul class="tags">
+    {post.data.tags.map((tag) => (
+      <li class="tag">
+        <a href={`/tags/${tag}`}>{tag}</a>
+      </li>
+    ))}
+  </ul>
+</section>
+

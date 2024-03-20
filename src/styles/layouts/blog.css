@@ -1,0 +1,11 @@
+.tags {
+  display: flex;
+  padding: 0;
+  gap: 1rem;
+}
+
+.posts {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
