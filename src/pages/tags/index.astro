@@ -24,7 +24,8 @@ const pageTitle = "タグインデックス";
     background-color: #F8FCFD;
   }
 </style>
-<Layout pageTitle={pageTitle}>
+<Layout>
+<h1>{pageTitle}</h1>
 <div class="tags">
   {tags.map((tag) => (
     <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
