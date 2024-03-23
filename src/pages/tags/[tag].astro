@@ -25,7 +25,8 @@ interface Tag {
 const { tag } = Astro.params as Tag;
 const { posts } = Astro.props;
 ---
-<Layout pageTitle={tag}>
+<Layout>
+  <h1>{tag}</h1>
   <p>{tag}のタグが付いた記事</p>
   <ul>
     {posts.map((post) => (

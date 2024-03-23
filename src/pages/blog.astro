@@ -9,7 +9,8 @@ const allTags = await getUniqueTags();
 
 const pageTitle = "Blog";
 ---
-<Layout pageTitle={pageTitle}>
+<Layout>
+  <h1>{pageTitle}</h1>
   <section>
     <h2>Tags</h2>
     <TagList tagList={allTags} />
