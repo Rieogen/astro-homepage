@@ -1,6 +1,7 @@
 /* include css */
 @import url("layouts/blog.css");
 @import url("Components/header.css");
+@import url("Components/footer.css");
 @import url("Components/tag.css");
 @import url("Components/postPreview.css");
 
@@ -28,10 +29,19 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   max-width: 650px;
   width: 100%;
   margin: 0 auto;
   text-align: justify;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 ul {
