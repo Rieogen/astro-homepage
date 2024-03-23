@@ -5,10 +5,10 @@ import TagList from '@/components/TagList.astro';
 
 interface Props {
   post: CollectionEntry<"post">;
+  isTagsVisible?: boolean;
 };
 
-const { post } = Astro.props;
-
+const { post, isTagsVisible } = Astro.props;
 const postDate = getFormatDate(post.data.publishDate);
 ---
 <section class="postPreview">
@@ -18,6 +18,6 @@ const postDate = getFormatDate(post.data.publishDate);
       <h3>{post.data.title}</h3>
     </a>
   </div>
-  <TagList tagList={post.data.tags} />
+  {isTagsVisible && <TagList tagList={post.data.tags} />}
 </section>
 
