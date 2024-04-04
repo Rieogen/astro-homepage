@@ -1,10 +1,10 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
-export const getAllPosts = async () => {
+export const getAllPosts = async (): Promise<Array<CollectionEntry<"post">>> => {
   return await getCollection("post");
 };
 
-export const getUniqueTags = async () => {
+export const getUniqueTags = async (): Promise<string[]> => {
   const allPosts = await getCollection("post");
   const allTags = allPosts.flatMap(post => [...post.data.tags]);
   return [...new Set(allTags)];
