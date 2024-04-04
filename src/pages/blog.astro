@@ -5,7 +5,7 @@ import PostList from '@/components/PostList.astro';
 import TagList from '@/components/TagList.astro';
 
 const allPosts = await getAllPosts();
-const sortPosts = await sortPostsByDate(allPosts);
+const sortPosts = sortPostsByDate(allPosts);
 const allTags = await getUniqueTags();
 
 const pageTitle = "Blog";
