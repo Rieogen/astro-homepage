@@ -1,10 +1,11 @@
 ---
-import { getAllPosts, getUniqueTags } from '@/utils/post';
+import { getAllPosts, getUniqueTags, sortPostsByDate } from '@/utils/post';
 import Layout from '@/layouts/Layout.astro'
 import PostList from '@/components/PostList.astro';
 import TagList from '@/components/TagList.astro';
 
 const allPosts = await getAllPosts();
+const sortPosts = await sortPostsByDate(allPosts);
 const allTags = await getUniqueTags();
 
 const pageTitle = "Blog";
@@ -17,6 +18,6 @@ const pageTitle = "Blog";
   </section>
   <section>
     <h2>Posts</h2>
-    <PostList postList={allPosts} isTagsVisible={true} />
+    <PostList postList={sortPosts} isTagsVisible={true} />
   </section>
 </Layout>
