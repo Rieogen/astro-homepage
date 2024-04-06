@@ -14,4 +14,4 @@ export const sortPostsByDate = (posts: Array<CollectionEntry<"post">>): Array<Co
   return posts.sort((a, b) => {
     return new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime();
   });
-}
+};
