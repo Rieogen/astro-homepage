@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 publishDate: 2022-07-01
 title: "This is title."
-description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 image: "/projectImages/blog-placeholder.jpg"
 stack: ["astro", "typescript"]
 github: "https://github.com/koto74/astro-homepage"

@@ -7,9 +7,9 @@ interface Props {
 
 const { project } = Astro.props;
 ---
-<section class="projectPreview">
+<section class="projectCard">
   <a href={`/projects/${project.slug}`}>
-    <img width="226" height="127" src={project.data.image} alt="ProjectImage" />
+    <img src={project.data.image} alt="ProjectImage" />
     <h3>{project.data.title}</h3>
     <p>{project.data.description}</p>
   </a>
