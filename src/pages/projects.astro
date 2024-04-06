@@ -5,10 +5,6 @@ import ProjectList from '@/components/ProjectList.astro';
 import { getAllProjects } from '@/utils/project';
 
 const allProjects = await getAllProjects();
-const allPosts = await getAllPosts();
-const sortPosts = sortPostsByDate(allPosts);
-const allTags = await getUniqueTags();
-
 const pageTitle = "Projects";
 ---
 <Layout>
