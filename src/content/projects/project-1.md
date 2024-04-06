@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../layouts/MarkdownProjectLayout.astro
 publishDate: 2022-07-01
-title: 'This is title.'
-description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-image: '/projectImages/blog-placeholder.jpg'
-stack: ['astro', 'typescript']
-github: 'https://github.com/koto74/astro-homepage'
+title: "This is title."
+description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+image: "/projectImages/blog-placeholder.jpg"
+stack: ["astro", "typescript"]
+github: "https://github.com/koto74/astro-homepage"
 ---
 
 # 私の最初のブログ記事
