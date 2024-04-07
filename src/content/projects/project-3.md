@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
 publishDate: 2022-07-01
 title: "This is title."
 description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
