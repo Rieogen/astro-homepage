@@ -1,40 +1,24 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
+import TagList from '@/components/TagList.astro';
+import { getFormatDate } from '@/utils/date';
 
-const { frontmatter } = Astro.props;
+interface Props {
+  post: CollectionEntry<"post">;
+}
+
+const { post } = Astro.props;
+
+const { data: { title, publishDate, author, tags }} = post;
+const articleDate = getFormatDate(publishDate);
 ---
-<Layout>
-  <h1>{frontmatter.title}</h1>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.publishDate.slice(0,10)}</p>
-
-  <p>著者: {frontmatter.author}</p>
-
-
-  <div class="tags">
-    {frontmatter.tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
-  </div>
-
+<Layout class="postLayout">
+  <section class="postTitle">
+    <h1>{title}</h1>
+    <p class="author">By {author}</p>
+    <p class="publicationDate">Publication Date: {articleDate}</p>
+    <TagList tagList={tags} />
+  </section>
   <slot />
 </Layout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

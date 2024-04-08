@@ -4,12 +4,6 @@ import Layout from './Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 <Layout>
-  <h1>{frontmatter.title}</h1>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.publishDate.slice(0,10)}</p>
-
-  <p>著者: {frontmatter.author}</p>
-
   <slot />
 </Layout>
 <style>
