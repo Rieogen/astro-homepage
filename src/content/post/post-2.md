@@ -124,7 +124,7 @@ var foo = function (bar) {
   return bar++;
 };
 
-console.log(foo(5));
+console.log(foo(5));aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
 ## Tables
