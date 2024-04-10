@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const { Content } = await post.render();
 
 const { data: { title, publishDate, author, tags }} = post;
 const articleDate = getFormatDate(publishDate);
@@ -20,5 +21,7 @@ const articleDate = getFormatDate(publishDate);
     <p class="publicationDate">Publication Date: {articleDate}</p>
     <TagList tagList={tags} />
   </section>
-  <slot />
+  <article class="postContent">
+    <Content />
+  </article>
 </Layout>

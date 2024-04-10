@@ -1,0 +1,23 @@
+.postContent img {
+  max-width: 100%;
+}
+
+/* コードブロックのスタイル */
+.postContent pre,
+.postContent code {
+  /*
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  display: block;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  */
+}
+
+.postContent code {
+  display: inline-block;
+  padding: 2px 4px;
+  margin: 0 2px;
+  font-size: 90%;
+}
