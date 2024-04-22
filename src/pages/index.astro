@@ -1,7 +1,9 @@
 ---
 import PostList from '@/components/PostList.astro';
+import ProjectList from '@/components/ProjectList.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getAllPosts } from '@/utils/post';
+import { getAllProjects } from '@/utils/project';
 
 const pageTitle = "Hello!!";
 const identity = {
@@ -13,6 +15,8 @@ const identity = {
 
 const allPosts = await getAllPosts()
 const blogEntries = allPosts.slice(0, 3)
+const allProjects = await getAllProjects();
+const projectEntries = allProjects.slice(0, 4)
 ---
 <Layout>
   <h1>{pageTitle}</h1>
@@ -31,5 +35,9 @@ const blogEntries = allPosts.slice(0, 3)
   <section>
     <h2>Posts</h2>
     <PostList postList={blogEntries} isTagsVisible={false} />
+  </section>
+  <section>
+    <h2>Projects</h2>
+    <ProjectList projectList={projectEntries} />
   </section>
 </Layout>
