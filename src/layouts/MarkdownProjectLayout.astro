@@ -2,8 +2,12 @@
 import Layout from './Layout.astro';
 
 const { frontmatter } = Astro.props;
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
   <slot />
 </Layout>
 <style>
