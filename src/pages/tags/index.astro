@@ -5,8 +5,13 @@ import { getUniqueTags } from '@/utils/post';
 
 const pageTitle = "Tags";
 const allTags = await getUniqueTags();
+// TODO: setting meta
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
 <h1>{pageTitle}</h1>
 <TagList tagList={allTags} />
 </Layout>
