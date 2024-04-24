@@ -1,3 +1,4 @@
+---
 type SiteConfig = {
 	author: string;
 	title: string;
@@ -46,4 +47,32 @@ type SiteMeta = {
 	ogImage?: string | undefined;
 	articleDate?: string | undefined;
 };
+
+type Props = SiteMeta
+
+const { title, description, ogImage, articleDate } = Astro.props;
+const titleSeparator = "•";
+const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<title>{siteTitle}</title>
+
+{/* Icons / Favicon */}
+
+{/* Meta tags */}
+<meta content={siteTitle} name="title" />
+<meta content={description} name="description" />
+<meta content={siteConfig.author} name="author" />
+
+{/* Open Graph */}
+<meta content="summary_large_image" name="twitter:card" />
+<meta content={canonicalURL} property="og:url" />
+<meta content={title} property="og:title" />
+<meta content={description} property="og:description" />
+<meta content={socialImageURL} property="og:image" />
+
 
