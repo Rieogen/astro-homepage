@@ -17,8 +17,13 @@ const allPosts = await getAllPosts()
 const blogEntries = allPosts.slice(0, 3)
 const allProjects = await getAllProjects();
 const projectEntries = allProjects.slice(0, 3)
+// TODO: setting meta
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
   <h1>{pageTitle}</h1>
   <section>
     <p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>

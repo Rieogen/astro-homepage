@@ -24,8 +24,13 @@ interface Tag {
 
 const { tag } = Astro.params as Tag;
 const { posts } = Astro.props;
+// TODO: setting meta
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
   <h1 class="tagTitle"><a href="/tags">Tag</a> -> {tag}</h1>
   <PostList postList={posts} isTagsVisible={false} />
 </Layout>

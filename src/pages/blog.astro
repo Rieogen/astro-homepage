@@ -9,8 +9,13 @@ const sortPosts = sortPostsByDate(allPosts);
 const allTags = await getUniqueTags();
 
 const pageTitle = "Blog";
+// TODO: setting meta
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
   <h1>{pageTitle}</h1>
   <section>
     <h2>Tags</h2>

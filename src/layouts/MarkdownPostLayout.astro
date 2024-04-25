@@ -11,10 +11,11 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const { data: { title, publishDate, author, tags }} = post;
+const { data: { title, description, publishDate, author, tags }} = post;
 const articleDate = getFormatDate(publishDate);
 ---
-<Layout class="postLayout">
+{/* TODO: setting ogImage */}
+<Layout meta={{title, description, articleDate}}>
   <section class="postTitle">
     <h1>{title}</h1>
     <p class="author">By {author}</p>

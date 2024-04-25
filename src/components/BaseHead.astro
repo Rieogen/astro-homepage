@@ -1,0 +1,78 @@
+---
+type SiteConfig = {
+	author: string;
+	title: string;
+	description: string;
+	lang: string;
+	ogLocale: string;
+	date: {
+		locale: string | string[] | undefined;
+		options: Intl.DateTimeFormatOptions;
+	};
+	webmentions?: {
+		link: string;
+		pingback?: string;
+	};
+};
+
+const siteConfig: SiteConfig = {
+  // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
+	author: "siteconfig author",
+	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
+	title: "siteconfig title",
+	// Meta property used as the default description meta property
+	description: "siteconfig description",
+	// HTML lang property, found in src/layouts/Base.astro L:18
+	lang: "en-GB",
+	// Meta property, found in src/components/BaseHead.astro L:42
+	ogLocale: "en_GB",
+	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
+	date: {
+		locale: "en-GB",
+		options: {
+			day: "numeric",
+			month: "short",
+			year: "numeric",
+		},
+	},
+	webmentions: {
+		// Webmention.io API endpoint. Get your own here: https://webmention.io/, and follow this blog post: https://astro-cactus.chriswilliams.dev/posts/webmentions/
+		link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
+	},
+}
+
+type SiteMeta = {
+	title: string;
+	description?: string;
+	ogImage?: string | undefined;
+	articleDate?: string | undefined;
+};
+
+type Props = SiteMeta
+
+const { title, description, ogImage, articleDate } = Astro.props;
+const titleSeparator = "•";
+const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<title>{siteTitle}</title>
+
+{/* Icons / Favicon */}
+
+{/* Meta tags */}
+<meta content={siteTitle} name="title" />
+<meta content={description} name="description" />
+<meta content={siteConfig.author} name="author" />
+
+{/* Open Graph */}
+<meta content="summary_large_image" name="twitter:card" />
+<meta content={canonicalURL} property="og:url" />
+<meta content={title} property="og:title" />
+<meta content={description} property="og:description" />
+<meta content={socialImageURL} property="og:image" />
+
+

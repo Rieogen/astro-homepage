@@ -6,8 +6,13 @@ import { getAllProjects } from '@/utils/project';
 
 const allProjects = await getAllProjects();
 const pageTitle = "Projects";
+// TODO: setting meta
+const meta = {
+	description: "test",
+	title: "test",
+};
 ---
-<Layout>
+<Layout meta={meta}>
   <h1>{pageTitle}</h1>
   <ProjectList projectList={allProjects} />
 </Layout>
