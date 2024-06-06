@@ -25,18 +25,19 @@ const meta = {
 ---
 <Layout meta={meta}>
   <h1>{pageTitle}</h1>
-  <section>
-    <p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>
-    <p>このサイトはチュートリアルを進めるにつれて更新されていきます。定期的にチェックして、私の旅の様子を見に来てください！</p>
-    <p>以下は私に関するいくつかの事実です。</p>
-    <ul>
-      <li>私の名前は{identity.firstName}です。</li>
-      <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
-      {identity.hobbies.length >= 2 &&
-        <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
-      }
-    </ul>
-  </section>
+  <article>
+    <h2>hello</h2>
+    <p>Rieogenです。読み方がわからないので、Rieと読んでください。
+      神奈川に在住、東京のWeb系企業で働いています。
+      高専出身で、高専時代はプロコンに出場したりしていました。
+      技術書、小説などの本を読むのが好きです。おすすめの本があれば教えてください。
+      休日は大抵パソコンと向き合っていますが、外に出る時はカメラを持ち写真を撮ることが好きです。
+      昔ヘルニアを患った過去があるので、ヘルニアトークができます。手術とても痛かった...
+      
+      このサイトはデザインセンスのない私が趣味で作っているため、見ずらいかもしれませんがお許しください。
+      デザイン修正案があれば、是非X(Twitter)でDMでお知らせください(小声)
+      </p>
+  </article>
   <section>
     <h2>Posts</h2>
     <PostList postList={blogEntries} isTagsVisible={false} />
