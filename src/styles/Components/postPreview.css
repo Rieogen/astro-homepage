@@ -1,9 +1,9 @@
 .postPreview {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 8px;
   border-bottom: 1px solid var(--underline);
-  gap: 10px;
+  gap: 8px;
 }
 
 .postPreview .heading h3 {
