@@ -4,7 +4,7 @@ title: "This is title."
 description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 image: "/projectImages/blog-placeholder.jpg"
 stack: ["astro", "typescript"]
-github: "https://github.com/koto74/astro-homepage"
+github: "https://github.com/Rieogen/astro-homepage"
 ---
 
 # 私の最初のブログ記事

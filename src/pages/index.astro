@@ -6,12 +6,39 @@ import { getAllPosts } from '@/utils/post';
 import { getAllProjects } from '@/utils/project';
 
 const pageTitle = "Hello!!";
-const identity = {
-  firstName: "サラ",
-  country: "カナダ",
-  occupation: "技術ライター",
-  hobbies: ["写真", "バードウォッチング", "野球"],
-};
+const skills = [
+  {
+    name: "C++",
+    icon: "https://cdn.svgporn.com/logos/c-plusplus.svg",
+  },
+  {
+    name: "TypeScript",
+    icon: "https://cdn.svgporn.com/logos/typescript-icon.svg",
+  },
+  {
+    name: "Python",
+    icon: "https://cdn.svgporn.com/logos/python.svg",
+  },
+  {
+    name: "React",
+    icon: "https://cdn.svgporn.com/logos/react.svg",
+  },
+  {
+    name: "Docker",
+    icon: "https://cdn.svgporn.com/logos/docker-icon.svg",
+  },
+  {
+    name: "GitHub",
+    icon: "https://cdn.svgporn.com/logos/github-icon.svg",
+  },
+];
+const sns = [
+  {
+    name: "@Rieogen",
+    url: "https://twitter.com/rieogen",
+    icon: "https://cdn.svgporn.com/logos/twitter.svg",
+  }
+]
 
 const allPosts = await getAllPosts()
 const blogEntries = allPosts.slice(0, 3)
@@ -25,23 +52,51 @@ const meta = {
 ---
 <Layout meta={meta}>
   <h1>{pageTitle}</h1>
-  <section>
-    <p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>
-    <p>このサイトはチュートリアルを進めるにつれて更新されていきます。定期的にチェックして、私の旅の様子を見に来てください！</p>
-    <p>以下は私に関するいくつかの事実です。</p>
-    <ul>
-      <li>私の名前は{identity.firstName}です。</li>
-      <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
-      {identity.hobbies.length >= 2 &&
-        <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
-      }
-    </ul>
+  <div class="profile">
+    <img class="profile__icon" src="/profile_icon.png" alt="rieogen">
+    <p class="profile__name">Rieogen</p>
+  </div>
+  <article class="introduction__box">
+    <p>Rieogenです。読み方がわからないので、Rieと読んでください。</p>
+    <p>神奈川在住、東京のWeb系企業で働いています。</p>
+    <p>高専出身で、高専時代はプロコンに出場したりしていました。</p>
+    <p>技術書、小説などの本を読むのが好きです。おすすめの本があれば教えてください。</p>
+    <p>休日は大抵パソコンと向き合っていますが、外に出る時はカメラを持ち写真を撮ることが好きです。</p>
+    <p>昔ヘルニアを患った過去があるので、ヘルニアトークができます。手術とても痛かった...</p>
+    <br>
+    <p>このサイトはデザインセンスのない私が趣味で作っているため、見ずらいかもしれませんがお許しください。</p>
+    <p>デザイン修正案があれば、是非X(Twitter)でDMでお知らせください(小声)</p>
+  </article>
+  <section class="introduction__box">
+    <h2>hobby</h2>
+    <p>お絵描き、プログラミング、読書</p>
   </section>
-  <section>
+  <section class="introduction__box">
+    <h2>skills</h2>
+    <div class="skill__icons">
+      {skills.map((skill) => (
+        <div>
+          <img src={skill.icon} alt={skill.name} height="30" width="30" >
+        </div>
+      ))}
+    </div>
+  </section>
+  <section class="introduction__box">
+    <h2>SNS</h2>
+    <div class="sns">
+      {sns.map((sns) => (
+        <a href={sns.url}>
+          <img src={sns.icon} height="30" width="30" >
+          <p> - {sns.name}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="introduction__box">
     <h2>Posts</h2>
     <PostList postList={blogEntries} isTagsVisible={false} />
   </section>
-  <section>
+  <section class="introduction__box">
     <h2>Projects</h2>
     <ProjectList projectList={projectEntries} />
   </section>
