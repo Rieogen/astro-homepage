@@ -5,7 +5,7 @@ interface Props {
   project: CollectionEntry<"projects">;
 };
 
-const { project } = Astro.props;
+const { project }: Props = Astro.props;
 ---
 <section class="projectCard">
   <a href={`/projects/${project.slug}`}>
