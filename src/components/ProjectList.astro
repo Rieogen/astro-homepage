@@ -7,11 +7,18 @@ interface Props {
 };
 
 const { projectList } = Astro.props;
+const isProjectListEmpty = projectList.length === 0;
 ---
 <ul class="projects">
-  {projectList.map((project) => (
-    <li>
-      <ProjectPreview project={project} />
-    </li>
-  ))}
+  <ul class="projects">
+    {isProjectListEmpty ? (
+      <li>Coming Soon</li>
+    ) : (
+      projectList.map((project) => (
+        <li>
+          <ProjectPreview project={project} />
+        </li>
+      ))
+    )}
+  </ul>
 </ul>
