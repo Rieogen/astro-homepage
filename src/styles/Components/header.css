@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
   @container style(--is-mobile) {
@@ -12,6 +13,11 @@
 .header__title {
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.header__title a img {
+  width: 100px;
+  height: auto;
 }
 
 .header__menu {
