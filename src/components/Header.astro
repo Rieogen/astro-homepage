@@ -23,6 +23,7 @@
 </header>
 
 <script>
+  console.log('Header component loaded')
   import { toggleClass } from '@/utils/domElement';
 
   class MobileNavButton extends HTMLElement {
@@ -48,4 +49,5 @@
   }
 
   customElements.define('mobile-button', MobileNavButton);
+  console.log('MobileNavButton component loaded')
 </script>
