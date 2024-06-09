@@ -68,3 +68,15 @@ mobile-button {
     display: block;
   }
 }
+
+.mobile-button__icon--burger {
+  display: none;
+}
+
+header:has(.header__menu--open) .mobile-button__icon--burger {
+  display: inline;
+}
+
+header:has(.header__menu--open) .mobile-button__icon--cross {
+  display: none;
+}
