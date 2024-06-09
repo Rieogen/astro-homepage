@@ -33,7 +33,6 @@
     toggleMobileMenu = () => {
       toggleClass(this.headerMenuElement, 'header__menu--open');
       this.isMenuOpen = !this.isMenuOpen;
-      console.log(this.isMenuOpen);
       this.mobileButtonElement.setAttribute('aria-expanded', this.isMenuOpen.toString());
     }
 
