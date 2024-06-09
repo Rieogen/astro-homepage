@@ -42,7 +42,6 @@
 }
 
 .header__menu--mobile {
-  display: none;
   position: absolute;
   top: 100%;
   right: 0;
@@ -60,25 +59,19 @@
 }
 
 .header__menu--mobile {
-  display: none;
-  @container style(--is-mobile) {
-    display: flex;
-    flex-direction: column;
-    text-align: end;
-    gap: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  gap: 1rem;
 }
 
 .mobile-button {
-  display: none;
-  @container style(--is-mobile) {
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .mobile-button__icon--cross {
