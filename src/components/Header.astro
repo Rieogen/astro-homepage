@@ -1,13 +1,48 @@
 ---
 ---
-<header class="header">
+<header class="header" id="header-main">
   <div class="header__title">
     <a href="/"><img src="/title.png" width="100" height="44" /></a>
   </div>
   <div class="header__menu">
-
     <a href="/">Top</a>
     <a href="/projects">Project</a>
     <a href="/blog">Blog</a>
+    <mobile-button>
+      <button>
+        <img src="/icons/cross.svg" height="20" />
+        <img src="/icons/menu-burger.svg" height="20">
+      </button>
+    </mobile-button>
+  </div>
+  <div>
   </div>
 </header>
+
+<script>
+  import { toggleClass } from '@/utils/domElement';
+
+  class MobileNavButton extends HTMLElement {
+    private headerElement: HTMLElement;
+    private isMenuOpen: boolean;
+    private mobileButtonElement: HTMLElement;
+
+    toggleMobileMenu = () => {
+      toggleClass(this.headerElement, 'menu--open');
+      this.isMenuOpen = !this.isMenuOpen;
+      console.log(this.isMenuOpen);
+      this.mobileButtonElement.setAttribute('aria-expanded', this.isMenuOpen.toString());
+    }
+
+    constructor() {
+      super();
+      this.headerElement = document.getElementById('header-main') as HTMLElement;
+      this.mobileButtonElement = this.querySelector('button') as HTMLElement;
+      this.isMenuOpen = false;
+
+      this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
+    }
+  }
+
+  customElements.define('mobile-button', MobileNavButton);
+</script>
