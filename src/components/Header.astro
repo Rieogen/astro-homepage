@@ -33,32 +33,19 @@
     toggleMobileMenu = () => {
       toggleClass(this.headerMenuElement, 'header__menu--open');
       this.isMenuOpen = !this.isMenuOpen;
+      console.log(this.isMenuOpen);
       this.mobileButtonElement.setAttribute('aria-expanded', this.isMenuOpen.toString());
     }
 
     constructor() {
       super();
-      this.isMenuOpen = false;
-    }
-
-    connectedCallback() {
       this.headerMenuElement = document.getElementById('header-menu') as HTMLElement;
+      this.mobileButtonElement = this.querySelector('button') as HTMLElement;
+      this.isMenuOpen = false;
 
-      const observer = new MutationObserver(() => {
-        this.mobileButtonElement = this.querySelector('button') as HTMLElement;
-        if (this.mobileButtonElement) {
-          this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
-          observer.disconnect();
-        } else {
-          console.error('Button element not found');
-        }
-      });
-
-      observer.observe(this, { childList: true, subtree: true });
+      this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    customElements.define('mobile-button', MobileNavButton);
-  });
+  customElements.define('mobile-button', MobileNavButton);
 </script>
