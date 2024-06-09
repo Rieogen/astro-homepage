@@ -43,7 +43,11 @@
       this.mobileButtonElement = this.querySelector('button') as HTMLElement;
       this.isMenuOpen = false;
 
-      this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
+      if (this.mobileButtonElement) {
+        this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
+      } else {
+        console.error('Button element not found');
+      }
     }
   }
 

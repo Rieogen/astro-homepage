@@ -74,6 +74,7 @@ mobile-button button {
   height: 30px;
   border: none;
   background: none;
+  transition: transform 0.3s ease;
 }
 
 .mobile-button__icon--cross {
