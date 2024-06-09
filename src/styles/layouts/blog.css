@@ -1,3 +1,7 @@
+.tags__box h2 {
+  margin-bottom: 8px;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -8,5 +12,5 @@
 .posts {
   display: flex;
   flex-flow: column;
-  gap: 10px;
+  gap: 8px;
 }

@@ -1,4 +1,5 @@
 /* include css */
+@import url("layouts/index.css");
 @import url("layouts/blog.css");
 @import url("layouts/post.css");
 @import url("layouts/tag.css");
@@ -8,6 +9,12 @@
 @import url("Components/postPreview.css");
 @import url("Components/project.css");
 
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* Global styles */
 :root {
   --background-dark: #1e1e2e;
@@ -16,7 +23,7 @@
   --text-dark: #f0f8f2;
   --text-light: #1e1e2e;
   --text-link-dark: #78c2ad;
-  --text-link-light: #ff008b;
+  --text-link-light: #ee336b;
   --tag-dark: #407ca2;
   --tag-light: #b51f3d;
   --underline: #375a7f;

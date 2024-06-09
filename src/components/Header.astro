@@ -2,12 +2,50 @@
 ---
 <header class="header">
   <div class="header__title">
-    <a href="/">Kotonayo</a>
+    <a href="/"><img src="/title.png" width="100" height="44" /></a>
   </div>
   <div class="header__menu">
-
+    <a href="/">Top</a>
     <a href="/projects">Project</a>
     <a href="/blog">Blog</a>
-    <a href="https://github.com/koto74/astro-homepage">GitHub</a>
+  </div>
+  <mobile-button>
+    <button>
+      <img class="mobile-button__icon--burger" src="/icons/menu-burger.svg" height="20">
+      <img class="mobile-button__icon--cross" src="/icons/cross.svg" height="15" />
+    </button>
+  </mobile-button>
+  <div class="header__menu--mobile" id="header-menu">
+    <a href="/">Top</a>
+    <a href="/projects">Project</a>
+    <a href="/blog">Blog</a>
   </div>
 </header>
+
+<script>
+  import { toggleClass } from '@/utils/domElement';
+
+  class MobileNavButton extends HTMLElement {
+    private headerMenuElement: HTMLElement;
+    private isMenuOpen: boolean;
+    private mobileButtonElement: HTMLElement;
+
+    toggleMobileMenu = () => {
+      toggleClass(this.headerMenuElement, 'header__menu--open');
+      this.isMenuOpen = !this.isMenuOpen;
+      console.log(this.isMenuOpen);
+      this.mobileButtonElement.setAttribute('aria-expanded', this.isMenuOpen.toString());
+    }
+
+    constructor() {
+      super();
+      this.headerMenuElement = document.getElementById('header-menu') as HTMLElement;
+      this.mobileButtonElement = this.querySelector('button') as HTMLElement;
+      this.isMenuOpen = false;
+
+      this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
+    }
+  }
+
+  customElements.define('mobile-button', MobileNavButton);
+</script>
