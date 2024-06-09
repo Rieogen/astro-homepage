@@ -39,9 +39,12 @@
 
     constructor() {
       super();
+      this.isMenuOpen = false;
+    }
+
+    connectedCallback() {
       this.headerMenuElement = document.getElementById('header-menu') as HTMLElement;
       this.mobileButtonElement = this.querySelector('button') as HTMLElement;
-      this.isMenuOpen = false;
 
       if (this.mobileButtonElement) {
         this.mobileButtonElement.addEventListener('click', this.toggleMobileMenu);
@@ -51,5 +54,7 @@
     }
   }
 
-  customElements.define('mobile-button', MobileNavButton);
+  document.addEventListener('DOMContentLoaded', () => {
+    customElements.define('mobile-button', MobileNavButton);
+  });
 </script>
