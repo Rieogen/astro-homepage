@@ -69,14 +69,25 @@ mobile-button {
   }
 }
 
-.mobile-button__icon--burger {
+mobile-button button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+.mobile-button__icon--cross {
   display: none;
 }
 
 header:has(.header__menu--open) .mobile-button__icon--burger {
-  display: inline;
+  display: none;
 }
 
 header:has(.header__menu--open) .mobile-button__icon--cross {
-  display: none;
+  display: inline;
+}
+
+.mobile-button__icon--cross {
+  filter: brightness(0) saturate(100%) invert(28%) sepia(97%) saturate(6706%) hue-rotate(346deg) brightness(102%) contrast(104%);
 }
