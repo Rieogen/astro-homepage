@@ -72,7 +72,11 @@
 .mobile-button {
   display: none;
   @container style(--is-mobile) {
-    display: block;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
 }
