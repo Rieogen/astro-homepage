@@ -57,7 +57,7 @@ const meta = {
 <Layout meta={meta}>
   <h1>{pageTitle}</h1>
   <div class="profile">
-    <img class="profile__icon" src="/profile_icon.png" alt="rieogen">
+    <img class="profile__icon" src="/profile_icon.png" alt="rieogen" width="150" height="150" />
     <p class="profile__name">Rieogen</p>
   </div>
   <article class="introduction__box">
@@ -88,7 +88,7 @@ const meta = {
     <div class="sns">
       {sns.map((sns) => (
         <a href={sns.url}>
-          <img src={sns.icon} height="30" width="30" >
+          <img src={sns.icon} alt={sns.name} height="30" width="30" >
           <p> - {sns.name}</p>
         </a>
       ))}
