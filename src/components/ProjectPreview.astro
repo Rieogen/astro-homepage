@@ -9,7 +9,7 @@ const { project }: Props = Astro.props;
 ---
 <section class="projectCard">
   <a href={`/projects/${project.slug}`}>
-    <img src={project.data.image} alt="ProjectImage" width="310" height="155" />
+    <img src={project.data.image} alt="ProjectImage" width="310" height="155" alt="projectImage" />
     <h3>{project.data.title}</h3>
     <p>{project.data.description}</p>
   </a>
