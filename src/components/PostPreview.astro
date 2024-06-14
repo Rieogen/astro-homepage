@@ -29,9 +29,14 @@ const postDate = getFormatDate(post.data.publishDate);
     flex-direction: column;
     padding: 8px;
     gap: 8px;
-  }
 
-  .postPreview__divider {
-    border-top: 1px solid $text-light;
+    & h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    &__divider {
+      border-top: 1px solid $text-light;
+    }
   }
 </style>

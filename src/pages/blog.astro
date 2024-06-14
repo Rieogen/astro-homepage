@@ -11,19 +11,27 @@ const allTags = await getUniqueTags();
 const pageTitle = "Blog";
 // TODO: setting meta
 const meta = {
-  description: "test",
-  title: "test",
+  title: "Blog - Rieogen",
+  description: undefined,
 };
 ---
 
 <Layout meta={meta}>
   <h1>{pageTitle}</h1>
-  <section class="tags__box">
+  <section class="tagSection">
     <h2>Tags</h2>
     <TagList tagList={allTags} />
   </section>
-  <section>
+  <section class="postSection">
     <h2>Posts</h2>
     <PostList postList={sortPosts} isTagsVisible={true} />
   </section>
 </Layout>
+
+<style lang="scss">
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+</style>
