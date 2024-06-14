@@ -1874,6 +1874,7 @@ __metadata:
     prettier: "npm:^3.3.1"
     prettier-plugin-astro: "npm:^0.14.0"
     sass: "npm:^1.77.5"
+    the-new-css-reset: "npm:^1.11.2"
     typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft
@@ -5618,6 +5619,13 @@ __metadata:
     mkdirp: "npm:^1.0.3"
     yallist: "npm:^4.0.0"
   checksum: 10c0/02ca064a1a6b4521fef88c07d389ac0936730091f8c02d30ea60d472e0378768e870769ab9e986d87807bfee5654359cf29ff4372746cc65e30cbddc352660d8
+  languageName: node
+  linkType: hard
+
+"the-new-css-reset@npm:^1.11.2":
+  version: 1.11.2
+  resolution: "the-new-css-reset@npm:1.11.2"
+  checksum: 10c0/2b5e6e7a3d06c2be8e05191a4ac345805740d2df948b6559b5445716147d354ab76f363f98266064a8814192e21850db31250187cb174a43a086150ced4eb829
   languageName: node
   linkType: hard
 

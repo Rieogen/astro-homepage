@@ -2,6 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import "the-new-css-reset";
 
 type SiteMeta = {
   title: string;
@@ -38,5 +39,37 @@ const {
     </main>
     <Footer />
   </body>
+
+  <style lang="scss" is:global>
+    html {
+      background-color: $background-light;
+      color: $text-light;
+      font-family: $default-font;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+      max-width: $max-content-width;
+      margin: 0 auto;
+      min-height: 100vh;
+
+      @include mediaQuery("sp") {
+        width: $mobile-content-width;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 50px;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+  </style>
 
 </html>
