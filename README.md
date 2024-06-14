@@ -1,6 +1,6 @@
 # [blog and portfolio](https://rieogen.netlify.app)
-今まで自分の制作物をネットに上げてこなかったのでこれから上げていく用
 
+今まで自分の制作物をネットに上げてこなかったのでこれから上げていく用
 
 ## install
 

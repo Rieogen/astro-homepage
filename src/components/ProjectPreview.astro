@@ -1,12 +1,13 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   project: CollectionEntry<"projects">;
-};
+}
 
 const { project }: Props = Astro.props;
 ---
+
 <section class="projectCard">
   <a href={`/projects/${project.slug}`}>
     <img src={project.data.image} alt="ProjectImage" width="310" height="155" alt="projectImage" />

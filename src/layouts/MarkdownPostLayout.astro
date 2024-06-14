@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import Layout from './Layout.astro';
-import TagList from '@/components/TagList.astro';
-import { getFormatDate } from '@/utils/date';
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import TagList from "@/components/TagList.astro";
+import { getFormatDate } from "@/utils/date";
 
 interface Props {
   post: CollectionEntry<"post">;
@@ -11,11 +11,14 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const { data: { title, description, publishDate, author, tags }} = post;
+const {
+  data: { title, description, publishDate, author, tags },
+} = post;
 const articleDate = getFormatDate(publishDate);
 ---
+
 {/* TODO: setting ogImage */}
-<Layout meta={{title, description, articleDate}}>
+<Layout meta={{ title, description, articleDate }}>
   <section class="postTitle">
     <h1>{title}</h1>
     <p class="author">By {author}</p>

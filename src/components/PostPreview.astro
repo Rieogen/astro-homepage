@@ -1,16 +1,17 @@
 ---
-import { getFormatDate } from '@/utils/date';
-import type { CollectionEntry } from 'astro:content';
-import TagList from '@/components/TagList.astro';
+import { getFormatDate } from "@/utils/date";
+import type { CollectionEntry } from "astro:content";
+import TagList from "@/components/TagList.astro";
 
 interface Props {
   post: CollectionEntry<"post">;
   isTagsVisible?: boolean;
-};
+}
 
 const { post, isTagsVisible } = Astro.props;
 const postDate = getFormatDate(post.data.publishDate);
 ---
+
 <section class="postPreview">
   <div class="heading">
     <p>{postDate}</p>
@@ -20,4 +21,3 @@ const postDate = getFormatDate(post.data.publishDate);
   </div>
   {isTagsVisible && <TagList tagList={post.data.tags} />}
 </section>
-

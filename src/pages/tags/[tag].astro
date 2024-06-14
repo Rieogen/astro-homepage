@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import BlogPost from '../../components/BlogPost.astro';
+import Layout from "../../layouts/Layout.astro";
+import BlogPost from "../../components/BlogPost.astro";
 
-import { getAllPosts, getUniqueTags } from '@/utils/post';
-import PostList from '@/components/PostList.astro';
+import { getAllPosts, getUniqueTags } from "@/utils/post";
+import PostList from "@/components/PostList.astro";
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
   const tags = await getUniqueTags();
-  
-  return tags.map((tag) => {
-    const filterPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+
+  return tags.map(tag => {
+    const filterPosts = allPosts.filter(post => post.data.tags.includes(tag));
     return {
       params: { tag },
       props: { posts: filterPosts },
     };
   });
-});
+};
 
 interface Tag {
   tag: string;
@@ -26,10 +26,11 @@ const { tag } = Astro.params as Tag;
 const { posts } = Astro.props;
 // TODO: setting meta
 const meta = {
-	description: "test",
-	title: "test",
+  description: "test",
+  title: "test",
 };
 ---
+
 <Layout meta={meta}>
   <h1 class="tagTitle"><a href="/tags">Tag</a> -> {tag}</h1>
   <PostList postList={posts} isTagsVisible={false} />
