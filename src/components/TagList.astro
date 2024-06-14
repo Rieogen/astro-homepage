@@ -15,3 +15,17 @@ const { tagList } = Astro.props;
     ))
   }
 </ul>
+
+<style lang="scss">
+  .tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    background-color: $tag-light;
+    color: $text-dark;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+</style>
