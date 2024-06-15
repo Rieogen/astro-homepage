@@ -1,14 +1,14 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
-import '../styles/global.css';
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import "the-new-css-reset";
 
 type SiteMeta = {
-	title: string;
-	description?: string;
-	ogImage?: string | undefined;
-	articleDate?: string | undefined;
+  title: string;
+  description?: string;
+  ogImage?: string | undefined;
+  articleDate?: string | undefined;
 };
 
 interface Props {
@@ -17,16 +17,16 @@ interface Props {
 
 const {
   meta: { title, description, ogImage, articleDate },
-} = Astro.props
-
+} = Astro.props;
 ---
+
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/profile_icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -39,4 +39,43 @@ const {
     </main>
     <Footer />
   </body>
+
+  <style lang="scss" is:global>
+    html {
+      background-color: $background-light;
+      color: $text-light;
+      font-family: $default-font;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+      max-width: $max-content-width;
+      margin: 0 auto;
+      min-height: 100vh;
+
+      @include mediaQuery("sp") {
+        width: $mobile-content-width;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+  </style>
+
+
 </html>

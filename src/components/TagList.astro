@@ -5,8 +5,27 @@ interface Props {
 
 const { tagList } = Astro.props;
 ---
+
 <ul class="tags">
-  {tagList.map((tag) => (
-    <li class="tag"><a href={`/tags/${tag}`}>{tag}</a></li>
-  ))}
+  {
+    tagList.map(tag => (
+      <li class="tag">
+        <a href={`/tags/${tag}`}>{tag}</a>
+      </li>
+    ))
+  }
 </ul>
+
+<style lang="scss">
+  .tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    background-color: $tag-light;
+    color: $text-dark;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+</style>

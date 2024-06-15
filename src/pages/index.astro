@@ -1,9 +1,9 @@
 ---
-import PostList from '@/components/PostList.astro';
-import ProjectList from '@/components/ProjectList.astro';
-import Layout from '@/layouts/Layout.astro';
-import { getAllPosts } from '@/utils/post';
-import { getAllProjects } from '@/utils/project';
+import PostList from "@/components/PostList.astro";
+import ProjectList from "@/components/ProjectList.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getAllPosts } from "@/utils/post";
+import { getAllProjects } from "@/utils/project";
 
 const pageTitle = "Hello!!";
 const skills = [
@@ -41,65 +41,119 @@ const sns = [
     name: "@Rieogen",
     url: "https://twitter.com/rieogen",
     icon: "https://cdn.svgporn.com/logos/twitter.svg",
-  }
-]
+  },
+];
 
-const allPosts = await getAllPosts()
-const blogEntries = allPosts.slice(0, 3)
+const allPosts = await getAllPosts();
+const blogEntries = allPosts.slice(0, 3);
 const allProjects = await getAllProjects();
-const projectEntries = allProjects.slice(0, 3)
+const projectEntries = allProjects.slice(0, 3);
 // TODO: setting meta
 const meta = {
-	title: "Rieogen - Homepage",
-	description: "This is Rieogen's Homepage.",
+  title: "Home - Rieogen",
+  description: "This is Rieogen's Homepage.",
 };
 ---
+
 <Layout meta={meta}>
   <h1>{pageTitle}</h1>
   <div class="profile">
     <img class="profile__icon" src="/profile_icon.png" alt="rieogen" width="150" height="150" />
     <p class="profile__name">Rieogen</p>
   </div>
-  <article class="introduction__box">
-    <p>Rieogenです。読み方がわからないので、Rieと読んでください。</p>
-    <p>今まで自分の制作物をネットに上げてこなかったので、これから公開していくためにこのページを作りました。</p>
-    <p>神奈川在住、東京のWeb系企業で働いています。</p>
-    <p>高専出身で、高専時代はプロコンに出場したりしていました。</p>
-    <p>技術書、小説などの本を読むのが好きなので、おすすめの本があれば教えてください。</p>
-    <p>休日は大抵パソコンと向き合ってイラストを描いたりしていますが、外に出る時はカメラを持ち写真を撮ることが好きです。</p>
-    
-  </article>
-  <section class="introduction__box">
-    <h2>Hobby</h2>
-    <p>お絵描き、プログラミング、読書</p>
-  </section>
-  <section class="introduction__box">
-    <h2>Skills</h2>
-    <div class="skill__icons">
-      {skills.map((skill) => (
-        <div>
-          <img src={skill.icon} alt={skill.name} height="30" width="30" >
-        </div>
-      ))}
-    </div>
-  </section>
-  <section class="introduction__box">
-    <h2>SNS</h2>
-    <div class="sns">
-      {sns.map((sns) => (
-        <a href={sns.url}>
-          <img src={sns.icon} alt={sns.name} height="30" width="30" >
-          <p> - {sns.name}</p>
-        </a>
-      ))}
-    </div>
-  </section>
-  <section class="introduction__box">
-    <h2>Posts</h2>
-    <PostList postList={blogEntries} isTagsVisible={false} />
-  </section>
-  <section class="introduction__box">
-    <h2>Projects</h2>
-    <ProjectList projectList={projectEntries} />
-  </section>
+  <div class="introduction">
+    <article class="introductionBox">
+      <p>Rieogenです。読み方がわからないので、Rieと読んでください。</p>
+      <p>今まで自分の制作物をネットに上げてこなかったので、これから公開していくためにこのページを作りました。</p>
+      <p>神奈川在住、東京のWeb系企業で働いています。</p>
+      <p>高専出身で、高専時代はプロコンに出場したりしていました。</p>
+      <p>技術書、小説などの本を読むのが好きなので、おすすめの本があれば教えてください。</p>
+      <p>
+        休日は大抵パソコンと向き合ってイラストを描いたりしていますが、外に出る時はカメラを持ち写真を撮ることが好きです。
+      </p>
+    </article>
+    <section class="introductionBox">
+      <h2>Hobby</h2>
+      <p>お絵描き、プログラミング、読書</p>
+    </section>
+    <section class="introductionBox">
+      <h2>Skills</h2>
+      <div class="introductionBox__icons">
+        {
+          skills.map(skill => (
+            <div>
+              <img src={skill.icon} alt={skill.name} height="30" width="30" />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <section class="introductionBox">
+      <h2>SNS</h2>
+      <div class="introductionBox__icons">
+        {
+          sns.map(sns => (
+            <a class="introductionBox__icons--snslink" href={sns.url}>
+              <img src={sns.icon} alt={sns.name} height="30" width="30" />
+              <p> - {sns.name}</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+    <section class="introductionBox">
+      <h2>Posts</h2>
+      <PostList postList={blogEntries} isTagsVisible={false} />
+    </section>
+    <section class="introductionBox">
+      <h2>Projects</h2>
+      <ProjectList projectList={projectEntries} />
+    </section>
+  </div>
 </Layout>
+
+<style lang="scss">
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__icon {
+      border-radius: 50%;
+    }
+    &__name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  }
+  .introduction {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & p {
+      margin: 0 8px;
+    }
+
+    &Box {
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      &__icons {
+        display: flex;
+        gap: 1rem;
+        margin: 0 8px;
+
+        &--snslink {
+          display: flex;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+</style>
