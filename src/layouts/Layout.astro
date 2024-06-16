@@ -26,10 +26,19 @@ const {
     <link rel="icon" type="image/svg+xml" href="/profile_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" as="style" onload="this.removeAttribute('onload');this.removeAttribute('as');this.rel='stylesheet';">
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
+      as="style"
+      onload="this.removeAttribute('onload');this.removeAttribute('as');this.rel='stylesheet';"
+    />
 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8034589874906692"
+      crossorigin="anonymous"></script>
   </head>
   <BaseHead title={title} description={description} articleDate={articleDate} ogImage={ogImage} />
   <body style="display: flex;">
@@ -76,6 +85,4 @@ const {
       opacity: 0.7;
     }
   </style>
-
-
 </html>
