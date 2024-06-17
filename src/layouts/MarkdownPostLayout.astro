@@ -20,17 +20,28 @@ const articleDate = getFormatDate(publishDate);
 {/* TODO: setting ogImage */}
 <Layout meta={{ title, description, articleDate }}>
   <section class="postTitle">
-    <h1>{title}</h1>
-    <p class="author">By {author}</p>
-    <p class="publicationDate">Publication Date: {articleDate}</p>
+    <p class="postTitle__date">Publication Date: {articleDate}</p>
+    <h1 class="postTitle__title">{title}</h1>
     <TagList tagList={tags} />
   </section>
+  <hr>
   <article class="postContent">
     <Content />
   </article>
 </Layout>
 
 <style lang="scss" is:global>
+  .postTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  hr {
+    border-top: 1px solid #333;
+  }
+
   .postContent {
     h1,
     h2,
