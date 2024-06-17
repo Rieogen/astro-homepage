@@ -6,7 +6,6 @@ publishDate: 2024-06-17
 tags: ["pc", "tech", "hardware"]
 ---
 
----
 ##### Case
   - [LIAN LI A4-H2O](https://lian-li.com/ja/BOX/%E3%81%824h2o/)
 ##### CPU

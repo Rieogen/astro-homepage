@@ -33,5 +33,11 @@ const meta = {
 
 <Layout meta={meta}>
   <h1 class="tagTitle"><a href="/tags">Tag</a> -> {tag}</h1>
-  <PostList postList={posts} isTagsVisible={false} />
+  <PostList postList={posts} isTagsVisible={true} />
 </Layout>
+
+<style lang="scss">
+  .tagTitle a {
+    color: $tag-light;
+  }
+</style>
