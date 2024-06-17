@@ -1,24 +1,47 @@
 ---
+
 interface Props {
   tagList: string[];
+  limit?: number;
+  isRandom?: boolean;
 }
 
-const { tagList } = Astro.props;
+const { tagList, limit, isRandom } = Astro.props;
+
+let displayTags = tagList;
+if (isRandom) {
+  const shuffled = tagList.sort(() => 0.5 - Math.random());
+  displayTags = limit ? shuffled.slice(0, limit) : tagList;
+} else {
+  displayTags = limit ? tagList.slice(0, limit) : tagList;
+}
+const hasMoreTags = limit && tagList.length > limit;
 ---
 
-<ul class="tags">
-  {
-    tagList.map(tag => (
-      <li class="tag">
-        <a href={`/tags/${tag}`}>{tag}</a>
-      </li>
-    ))
-  }
-</ul>
+<div class="tagContainer">
+  <ul class="tags">
+    {
+      displayTags.map(tag => (
+        <li class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+  {hasMoreTags && <a class="viewTag" href="/tags">View all -></a>}
+</div>
 
 <style lang="scss">
+  .tagContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+  }
+
   .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
   }
 
@@ -27,5 +50,9 @@ const { tagList } = Astro.props;
     color: $text-dark;
     border-radius: 4px;
     padding: 4px 8px;
+  }
+
+  .viewTag:hover {
+    color: $tag-light;
   }
 </style>
