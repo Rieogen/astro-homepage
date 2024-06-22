@@ -1,5 +1,4 @@
 ---
-
 interface Props {
   tagList: string[];
   limit?: number;
@@ -28,7 +27,13 @@ const hasMoreTags = limit && tagList.length > limit;
       ))
     }
   </ul>
-  {hasMoreTags && <a class="viewTag" href="/tags">View all -></a>}
+  {
+    hasMoreTags && (
+      <a class="viewTag" href="/tags">
+        View all ->
+      </a>
+    )
+  }
 </div>
 
 <style lang="scss">
