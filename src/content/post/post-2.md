@@ -7,18 +7,29 @@ tags: ["pc", "tech", "hardware"]
 ---
 
 ##### Case
-  - [LIAN LI A4-H2O](https://lian-li.com/ja/BOX/%E3%81%824h2o/)
+
+- [LIAN LI A4-H2O](https://lian-li.com/ja/BOX/%E3%81%824h2o/)
+
 ##### CPU
-  - i7-13700K
+
+- i7-13700K
+
 ##### CPU Cooler
-  - KRAKEN X53
+
+- KRAKEN X53
+
 ##### RAM
-  - 16GB * 2
+
+- 16GB \* 2
+
 ##### GPU
-  - GEFORCE RTX 4070Ti
+
+- GEFORCE RTX 4070Ti
+
 ##### Power
-  - V850 SFX GOLD
+
+- V850 SFX GOLD
+
 ##### OS
-  - Windows 11 home
 
-
+- Windows 11 home
